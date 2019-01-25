@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa Leme</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}"/>
+
+</head>
+<body>
+    <header id="cabecalho">
+
+        <h1 align="center">{{ nome_tabela }}</h1>
+
+    </header>
+    <section id="principal">
+        {% if mensagem %}
+        <p align="center"><strong> {{ mensagem }}</strong> <br/> <br/></p>
+        {% endif %}
+    <form action="{% url 'envio' %}" method="post">
+
+        {% csrf_token %}
+
+        {% for linha in linhas.values %}
+        <div class="caixa">
+
+            <br/>
+
+                <figure class="imagem-pergunta">
+
+                    <img src="{% static linha.imagem %}"/>
+
+                </figure>
+
+                <div class="pergunta">
+                    {{ linha.pergunta }} <br/>
+                    {% for item in linha.values %}
+                        {% if forloop.counter > 2 %}
+                            <input type="radio" name="op{{ forloop.parentloop.counter }}" value = "{{ item.0 }}"> {{ item.0 }} <br/>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+
+
+        </div>
+        <br/>
+
+        {% endfor %}
+        <br/>
+        <button id="enviar" type=submit>Enviar</button>
+    </form>
+    </section>
+
+
+
+</body>
+</html>

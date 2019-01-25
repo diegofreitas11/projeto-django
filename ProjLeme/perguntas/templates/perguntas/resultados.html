@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa Leme</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}"/>
+
+</head>
+<body>
+    <header id="cabecalho">
+        <h1 align="center"> {{ nome_tabela }} </h1>
+        <h2 align="center">Quantidade de respostas: {{ total }}</h2>
+    </header>
+    <section id="principal">
+        {% for linha in linhas.values %}
+        <div class="caixa">
+
+            <br/>
+
+                <figure class="imagem-pergunta">
+                    <img src="{% static linha.imagem %}"/>
+
+                </figure>
+            <br/>
+            <div class="pergunta">
+            {{ linha.pergunta }} <br/>
+            {% for item in linha.values %}
+                {% if forloop.counter > 2 %}
+                     {{ item.0 }} - {{ item.1 }}% <br/>
+
+                {% endif %}
+
+            {% endfor %}
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </section>
+</body>
+</html>

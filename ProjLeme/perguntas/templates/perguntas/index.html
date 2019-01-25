@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Survival never goes out of style</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}"/>
+<head>
+<body>
+	<header id="cabecalho">
+		<h1>Teoria Falida</h1>
+		<div id="menu">
+		<ul>
+			<li>Home</li>
+			<li>Textos</li>
+			<li>Sobre Mim</li>
+			<li>Fotos</li>
+		</ul>
+		</div>
+	</header>
+	<section id="corpo">
+		<ul id="textos">
+			<li class="esquerda">
+				<figure class="posts">
+					<img src="{% static 'imagens/mulher.jpg' %}"/>
+				<figcaption>
+					Espelho (O Corpo de Billy)
+				</figcaption>
+				</figure>
+			</li>
+			<li class="direita">
+				<figure class="posts">
+					<img src="imagens/casa.jpg"/>
+					<figcaption>
+						O que resta...
+					</figcaption>
+				</figure>
+			</li>
+			<li class="esquerda">
+				<figure class="posts">
+					<img src="imagens/girassol.jpg"/>
+					<figcaption>
+						Mente de Billy
+					</figcaption>
+				</figure>
+			</li>
+			
+			<li class="direita">
+				<figure class="posts">
+					<img src="imagens/avenida.jpg"/>
+					<figcaption>
+						Quarto retrato - rainy day
+					</figcaption>
+				</figure>
+			</li>
+		</ul>
+	</section>
+</body>
+</html>
